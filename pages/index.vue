@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div>
-      <logo />
       <h1>
-        get-the-milk
+        A list making app
       </h1>
-      <h2>
-        Reminder list making app
-      </h2>
+      <logo />
+      <button class="button is-link">
+        Get list making!
+      </button>
     </div>
   </div>
 </template>
@@ -21,29 +21,3 @@ export default {
   }
 }
 </script>
-
-<style>
-html, body {
-  height: 100%;
-}
-
-body {
-  background-color: #254E70;
-  color: #fff;
-}
-
-.milk-bottle {
-  width: 100px;
-  height: 100px;
-}
-
-.mask-rect {
-  animation: fill 2s ease-in-out infinite;
-}
-
-@keyframes fill {
-  0% { height: 0; }
-  50% { height: 100%; }
-  100% { height: 0; }
-}
-</style>
