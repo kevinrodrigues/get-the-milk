@@ -2,22 +2,22 @@
   <div class="container">
     <div>
       <h1>
-        A list making app
+        Get the milk!
       </h1>
-      <logo />
-      <button class="button is-link">
-        Get list making!
+      <MilkBottle />
+      <button class="button is-tertiary">
+        Create list
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import MilkBottle from '~/components/MilkBottle.vue'
 
 export default {
   components: {
-    Logo
+    MilkBottle
   }
 }
 </script>

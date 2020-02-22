@@ -1079,12 +1079,6 @@
     consola "^2.11.3"
     defu "^1.0.0"
 
-"@nuxtjs/bulma@^1.2.1":
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/bulma/-/bulma-1.2.6.tgz#0885722545e99907e994878b987e5c872eaae6e3"
-  dependencies:
-    bulma "^0.8.0"
-
 "@nuxtjs/eslint-config@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-config/-/eslint-config-1.1.2.tgz#cde4c950014a781bcc34abbfef9c62546d8fc34c"
@@ -2114,10 +2108,6 @@ buffer@^4.3.0:
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
-
-bulma@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.0.tgz#ac1606431703a4761b18a4a2d5cc1fa864a2aece"
 
 bytes@3.0.0:
   version "3.0.0"
