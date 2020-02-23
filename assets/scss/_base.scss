@@ -13,8 +13,9 @@ html, body {
 }
 
 body {
-  font-family: 'Indie Flower', sans-serif;
-  background-color: $secondary-color;
+  font-family: 'Courgette', sans-serif;
+  background: rgb(142,227,239);
+  background: radial-gradient(circle, rgba(142,227,239,1) 0%, rgba(40,209,232,1) 35%, rgba(29,185,207,1) 100%);
   color: $primary-color;
   text-align: center;
 }

@@ -7,6 +7,7 @@
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+  max-width: 220px;
 }
 
 @keyframes shake {
