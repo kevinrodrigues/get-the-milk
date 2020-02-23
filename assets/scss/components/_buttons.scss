@@ -15,7 +15,6 @@
 
 .button {
   font-family: 'Courgette', sans-serif;
-  -webkit-appearance: none;
   align-items: center;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -28,6 +27,7 @@
   padding: calc(.5em - 1px) calc(.75em - 1px);
   position: relative;
   vertical-align: top;
+  text-decoration: none;
 }
 
 .button .button {

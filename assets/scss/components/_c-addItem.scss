@@ -1,0 +1,16 @@
+.c-addItem {
+    padding: 15px;
+
+    input {
+        width: 100%;
+        border: 0;
+        padding: 25px;
+        font-size: 1em;
+    }
+
+    .c-addItem-container {
+        background-color: $white;
+        margin: 10px -15px;
+        padding: 10px;
+    }
+}
