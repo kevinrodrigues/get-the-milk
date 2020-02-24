@@ -6,20 +6,20 @@
       </h1>
       <MilkBottle />
       <router-link to="/additems" class="button is-tertiary">
-        Create a shopping list
+        Create a list!
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import MilkBottle from '~/components/MilkBottle.vue'
+import MilkBottle from '~/components/MilkBottle.vue';
 
 export default {
   components: {
     MilkBottle
   }
-}
+};
 </script>
 
 <style scoped>
@@ -38,6 +38,7 @@ h1 {
 }
 
 .button {
+  font-family: 'Pacifico', sans-serif;
   margin: 30px auto;
 }
 

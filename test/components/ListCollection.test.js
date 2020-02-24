@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
-import MilkBottle from '@/components/MilkBottle.vue'
+import ListCollection from '@/components/ListCollection.vue'
 
-describe('`MilkBottle`', () => {
+describe('`ListCollection`', () => {
   it('should be a Vue instance', () => {
-    const wrapper = mount(MilkBottle);
+    const wrapper = mount(ListCollection);
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 });
