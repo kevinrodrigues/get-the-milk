@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <h1>
-        Get the milk!
-      </h1>
+      <h1>Get the milk!</h1>
       <MilkBottle />
-      <router-link to="/additems" class="button is-tertiary">
+      <button type="button" class="button is-tertiary">Sign up</button>
+      <p>or</p>
+      <router-link to="/additems" class="button is-primary">
         Create a list!
       </router-link>
     </div>

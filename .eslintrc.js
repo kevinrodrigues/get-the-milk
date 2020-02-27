@@ -13,6 +13,8 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/multiline-html-element-content-newline': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'always']
   }
