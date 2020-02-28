@@ -38,7 +38,7 @@ export default {
       }
 
       this.itemAdded.push({
-        id: Math.random().toString(36).substr(2, 5),
+        id: 'test',
         content: this.itemEntered,
         quantity: 1,
         purchasedAt: null,
