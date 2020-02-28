@@ -5,7 +5,7 @@
     </template>
 
     <template #quantity>
-      {{ item.quantity }}
+      <!--{{ item.quantity }}-->
     </template>
 
     <template #actions>

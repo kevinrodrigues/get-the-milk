@@ -29,9 +29,10 @@ describe('`AddItems`', () => {
         it('should push the items to `itemAdded` array', () => {
           // Arrange
           const spy = jest.spyOn(global.Date, 'now').mockReturnValue('1234');
+          const spyId = jest.spyOn(global.Math, 'random').mockReturnValue('1234');
           
           const item = [{
-            id: 'test',
+            id: '34',
             content: 'Vela Pulsar',
             quantity: 1,
             purchasedAt: null,

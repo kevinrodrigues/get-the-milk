@@ -3,7 +3,7 @@
     <div>
       <h1>Get the milk!</h1>
       <MilkBottle />
-      <button type="button" class="button is-tertiary">Sign up</button>
+      <button type="button" class="button is-tertiary">Sign up for free!</button>
       <p>or</p>
       <router-link to="/additems" class="button is-primary">
         Create a list!

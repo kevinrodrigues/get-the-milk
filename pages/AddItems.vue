@@ -51,9 +51,8 @@ export default {
     },
 
     handleItemChange (item) {
-      /* eslint-disable */
-      console.log(JSON.stringify(item));
-      console.log(this.itemAdded);
+      const itemToRemove = this.itemAdded.findIndex(el => el.id === item.id);
+      this.itemAdded.splice(itemToRemove, 1);
     }
   }
 };
