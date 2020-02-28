@@ -11,6 +11,7 @@
         v-for="item in itemAdded"
         :key="item.key"
         :item="item"
+        @change="handleItemChange"
       />
     </div>
   </div>
@@ -38,7 +39,7 @@ export default {
       }
 
       this.itemAdded.push({
-        id: 'test',
+        id: Math.random().toString(36).substr(2, 5),
         content: this.itemEntered,
         quantity: 1,
         purchasedAt: null,
@@ -47,6 +48,12 @@ export default {
       });
 
       this.itemEntered = '';
+    },
+
+    handleItemChange (item) {
+      /* eslint-disable */
+      console.log(JSON.stringify(item));
+      console.log(this.itemAdded);
     }
   }
 };

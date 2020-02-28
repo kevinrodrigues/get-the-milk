@@ -47,6 +47,19 @@ describe('`AddItems`', () => {
           // Assert
           expect(wrapper.vm.itemAdded).toEqual(item);
         });
+        
+        it('should clear the `itemEntered` value once `itemAdded` has updated the users entry', () => {
+          // Arrange
+          const spy = jest.spyOn(global.Date, 'now').mockReturnValue('1234');
+  
+          wrapper.vm.itemEntered = 'Vela Pulsar';
+  
+          // Act
+          wrapper.vm.saveItem();
+  
+          // Assert
+          expect(wrapper.vm.itemEntered).toBe('');
+        });
       });
     });
   });
