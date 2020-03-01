@@ -10,7 +10,8 @@
 
     <template #actions>
       <button @click.prevent="deleteItem">Delete</button>
-      <button>Increase</button>
+      <button type="button">Increase</button>
+      <button type="button">Edit</button>
     </template>
   </base-item>
 </template>

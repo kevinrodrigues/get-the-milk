@@ -1,11 +1,33 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
+import Vuex from 'vuex';
 import AddItems from '@/pages/AddItems.vue';
+
+const localVue = createLocalVue();
+
+localVue.use(Vuex);
+
+const state = {
+  items: 2
+}
+
+const store = new Vuex.Store({
+  modules: {
+    ItemList: {
+      namespaced: true,
+      state
+    }
+  }
+});
+
 
 describe('`AddItems`', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallowMount(AddItems);
+    wrapper = shallowMount(AddItems, {
+      localVue,
+      store
+    });
   });
 
   it('should be a Vue instance', () => {

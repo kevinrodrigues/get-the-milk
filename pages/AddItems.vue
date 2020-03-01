@@ -8,7 +8,7 @@
 
     <div class="c-addItem-container">
       <product-item
-        v-for="item in itemAdded"
+        v-for="item in items"
         :key="item.key"
         :item="item"
         @change="handleItemChange"
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import Navigation from '~/components/Navigation.vue';
 import ProductItem from '~/components/ProductItem.vue';
 
@@ -28,17 +29,26 @@ export default {
   },
 
   data: () => ({
-    itemEntered: '',
-    itemAdded: []
+    itemEntered: ''
   }),
 
+  computed: {
+    ...mapState('ItemList', [
+      'items'
+    ])
+  },
+
   methods: {
+    ...mapActions('ItemList', [
+      'addItems'
+    ]),
+
     saveItem () {
-      if (!this.itemEntered) {
+      if (!this.items) {
         return false;
       }
 
-      this.itemAdded.push({
+      this.addItems({
         id: Math.random().toString(36).substr(2, 5),
         content: this.itemEntered,
         quantity: 1,
@@ -51,8 +61,9 @@ export default {
     },
 
     handleItemChange (item) {
-      const itemToRemove = this.itemAdded.findIndex(el => el.id === item.id);
-      this.itemAdded.splice(itemToRemove, 1);
+      // Move splice line to Vuex.
+      const itemToRemove = this.items.findIndex(el => el.id === item.id);
+      this.items.splice(itemToRemove, 1);
     }
   }
 };
