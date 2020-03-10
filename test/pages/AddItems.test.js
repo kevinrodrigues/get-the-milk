@@ -53,8 +53,34 @@ describe('`AddItems`', () => {
       });
       
       describe('AND `itemEntered` is populated', () => {
-        xit('should make a call to vuex action `addItems`', () => {
-          // @Todo!
+        it('should make a call to vuex action `addItems`', () => {
+          // Arrange
+          const state = {
+            items: [{ solar: 'Vela Pulsar' }]
+          }
+          
+          const store = new Vuex.Store({
+            modules: {
+              ItemList: {
+                namespaced: true,
+                state,
+                actions
+              }
+            }
+          });
+
+          wrapper = shallowMount(AddItems, {
+            localVue,
+            store
+          });
+
+          const spy = jest.spyOn(wrapper.vm, 'addItems');
+
+          // Act
+          wrapper.vm.saveItem();
+
+          // Assert
+          expect(spy).toHaveBeenCalled();
         });
         
         it('should clear the `itemEntered` value once `itemAdded` has updated the users entry', () => {
