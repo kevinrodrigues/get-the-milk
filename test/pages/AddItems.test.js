@@ -7,14 +7,19 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 const state = {
-  items: 2
+  items: 0
+}
+
+const actions = {
+  addItems: jest.fn()
 }
 
 const store = new Vuex.Store({
   modules: {
     ItemList: {
       namespaced: true,
-      state
+      state,
+      actions
     }
   }
 });
@@ -48,32 +53,31 @@ describe('`AddItems`', () => {
       });
       
       describe('AND `itemEntered` is populated', () => {
-        it('should push the items to `itemAdded` array', () => {
-          // Arrange
-          const spy = jest.spyOn(global.Date, 'now').mockReturnValue('1234');
-          const spyId = jest.spyOn(global.Math, 'random').mockReturnValue('1234');
-          
-          const item = [{
-            id: '34',
-            content: 'Vela Pulsar',
-            quantity: 1,
-            purchasedAt: null,
-            createdAt: Date.now(),
-            deletedAt: null
-          }];
-          
-          wrapper.vm.itemEntered = 'Vela Pulsar';
-          
-          // Act
-          wrapper.vm.saveItem();
-          
-          // Assert
-          expect(wrapper.vm.itemAdded).toEqual(item);
+        xit('should make a call to vuex action `addItems`', () => {
+          // @Todo!
         });
         
         it('should clear the `itemEntered` value once `itemAdded` has updated the users entry', () => {
           // Arrange
           const spy = jest.spyOn(global.Date, 'now').mockReturnValue('1234');
+          const state = {
+            items: [{ solar: 'Vela Pulsar' }]
+          }
+          
+          const store = new Vuex.Store({
+            modules: {
+              ItemList: {
+                namespaced: true,
+                state,
+                actions
+              }
+            }
+          });
+
+          wrapper = shallowMount(AddItems, {
+            localVue,
+            store
+          });
   
           wrapper.vm.itemEntered = 'Vela Pulsar';
   

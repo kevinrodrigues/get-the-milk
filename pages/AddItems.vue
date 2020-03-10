@@ -40,7 +40,8 @@ export default {
 
   methods: {
     ...mapActions('ItemList', [
-      'addItems'
+      'addItems',
+      'removeItems'
     ]),
 
     saveItem () {
@@ -61,9 +62,8 @@ export default {
     },
 
     handleItemChange (item) {
-      // Move splice line to Vuex.
       const itemToRemove = this.items.findIndex(el => el.id === item.id);
-      this.items.splice(itemToRemove, 1);
+      this.removeItems(itemToRemove);
     }
   }
 };
