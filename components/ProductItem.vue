@@ -1,7 +1,19 @@
 <template>
   <base-item :item="item">
     <template #content>
-      {{ item.content }}
+      <div
+        v-if="!isEditing"
+        @dblclick="onEdit"
+      >
+        {{ item.content }}
+      </div>
+
+      <input
+        v-if="isEditing"
+        ref="editItem"
+        v-model="itemReference"
+        type="text"
+      >
     </template>
 
     <template #quantity>
@@ -10,8 +22,6 @@
 
     <template #actions>
       <button @click.prevent="deleteItem">Delete</button>
-      <button type="button">Increase</button>
-      <button type="button">Edit</button>
     </template>
   </base-item>
 </template>
@@ -31,6 +41,13 @@ export default {
     }
   },
 
+  data () {
+    return {
+      isEditing: false,
+      itemReference: ''
+    };
+  },
+
   methods: {
     deleteItem () {
       this.emitItemChanged({
@@ -43,6 +60,15 @@ export default {
         ...this.item,
         ...item
       });
+    },
+
+    async onEdit () {
+      this.isEditing = true;
+      this.itemReference = this.item.content;
+
+      await this.$nextTick();
+
+      this.$refs.editItem.focus();
     }
   }
 };

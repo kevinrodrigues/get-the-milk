@@ -26,6 +26,7 @@ describe('`ProductItem`', () => {
         }
       });
     });
+
     it('should exist', () => {
       expect(wrapper.vm.deleteItem).toBeDefined();
     });

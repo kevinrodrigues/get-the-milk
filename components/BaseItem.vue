@@ -5,7 +5,6 @@
         <input
           :checked="!!item.purchasedAt"
           type="checkbox"
-          disabled
         >
       </slot>
     </div>
