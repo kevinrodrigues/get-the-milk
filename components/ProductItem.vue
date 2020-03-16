@@ -11,7 +11,9 @@
       <input
         v-if="isEditing"
         ref="editItem"
-        v-model="itemReference"
+        v-model.trim="itemReference"
+        @keyup.enter="saveItem"
+        @blur="saveItem"
         type="text"
       >
     </template>
@@ -69,6 +71,23 @@ export default {
       await this.$nextTick();
 
       this.$refs.editItem.focus();
+    },
+
+    saveItem () {
+      if (this.itemReference) {
+        /* eslint-disable */
+        console.log(this.itemReference);
+        this.emitItemChanged({
+          content: this.itemReference
+        });
+      }
+
+      this.stopItemEdit();
+    },
+
+    stopItemEdit () {
+      this.isEditing = false;
+      this.itemReference = '';
     }
   }
 };
