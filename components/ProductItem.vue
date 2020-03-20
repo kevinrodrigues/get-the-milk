@@ -76,7 +76,6 @@ export default {
     saveItem () {
       if (this.itemReference) {
         /* eslint-disable */
-        console.log(this.itemReference);
         this.emitItemChanged({
           content: this.itemReference
         });
