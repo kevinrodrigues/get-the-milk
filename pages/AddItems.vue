@@ -32,6 +32,10 @@ export default {
     itemEntered: ''
   }),
 
+  mounted () {
+    this.getPreviousItems();
+  },
+
   computed: {
     ...mapState('ItemList', [
       'items'
@@ -41,7 +45,8 @@ export default {
   methods: {
     ...mapActions('ItemList', [
       'addItems',
-      'removeItems'
+      'removeItems',
+      'getPreviousItems'
     ]),
 
     saveItem () {

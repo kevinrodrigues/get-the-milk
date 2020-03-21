@@ -1,4 +1,4 @@
-import ItemsLocalStorageService from '../services/ItemsLocalStorage.service';
+import ItemListService from '../services/ItemList.service';
 
 export const state = () => ({
   items: []
@@ -15,13 +15,23 @@ export const actions = {
 
   updateItems: ({ commit }, payload) => {
     commit('updateAddedItems', payload);
+  },
+
+  getPreviousItems: ({ commit }) => {
+    const previouslyAddedItems = ItemListService.getAllStoredItems('GET-THE-MILK');
+
+    if (previouslyAddedItems) {
+      /* eslint-disable */
+      console.log(previouslyAddedItems);
+      commit('setPreviousItems', previouslyAddedItems);
+    }
   }
 };
 
 export const mutations = {
   setAddedItems: (state, items) => {
     state.items.push(items);
-    ItemsLocalStorageService.setItems('GET-THE-MILK', state.items);
+    ItemListService.setItems('GET-THE-MILK', state.items);
   },
 
   removeAddedItems: (state, itemToRemove) => {
@@ -30,5 +40,11 @@ export const mutations = {
 
   updateAddedItems: (state, itemToUpdate) => {
     // call local storage service here..
+  },
+
+  setPreviousItems: (state, items) => {
+    /* eslint-disable */
+    state.items.push(...items);
+    console.log(items);
   }
 };
