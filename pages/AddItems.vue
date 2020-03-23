@@ -32,20 +32,20 @@ export default {
     itemEntered: ''
   }),
 
-  mounted () {
-    this.getPreviousItems();
-  },
-
   computed: {
     ...mapState('ItemList', [
       'items'
     ])
   },
 
+  mounted () {
+    this.getPreviousItems();
+  },
+
   methods: {
     ...mapActions('ItemList', [
       'addItems',
-      'removeItems',
+      'updateItems',
       'getPreviousItems'
     ]),
 
@@ -67,8 +67,7 @@ export default {
     },
 
     handleItemChange (item) {
-      const itemToRemove = this.items.findIndex(el => el.id === item.id);
-      this.removeItems(itemToRemove);
+      this.updateItems(item);
     }
   }
 };

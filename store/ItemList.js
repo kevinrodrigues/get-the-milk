@@ -14,15 +14,20 @@ export const actions = {
   },
 
   updateItems: ({ commit }, payload) => {
-    commit('updateAddedItems', payload);
+    const items = ItemListService.getAllStoredItems('GET-THE-MILK');
+    console.log(items);
+    const index = items.findIndex(i => i.id === payload.id);
+    if (index === -1) {
+      return;
+    }
+    items.splice(index, 1, payload);
+    commit('updateAddedItems', items);
   },
 
   getPreviousItems: ({ commit }) => {
     const previouslyAddedItems = ItemListService.getAllStoredItems('GET-THE-MILK');
 
     if (previouslyAddedItems) {
-      /* eslint-disable */
-      console.log(previouslyAddedItems);
       commit('setPreviousItems', previouslyAddedItems);
     }
   }
@@ -39,12 +44,10 @@ export const mutations = {
   },
 
   updateAddedItems: (state, itemToUpdate) => {
-    // call local storage service here..
+    state.items = itemToUpdate;
   },
 
   setPreviousItems: (state, items) => {
-    /* eslint-disable */
     state.items.push(...items);
-    console.log(items);
   }
 };
