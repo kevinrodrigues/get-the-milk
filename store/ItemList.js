@@ -10,12 +10,17 @@ export const actions = {
   },
 
   removeItems: ({ commit }, payload) => {
-    commit('removeAddedItems', payload);
+    const items = ItemListService.getAllStoredItems('GET-THE-MILK');
+    const index = items.findIndex(i => i.id === payload);
+    console.log(items);
+    console.log(index);
+    items.splice(index, 1);
+
+    commit('removeAddedItems', items);
   },
 
   updateItems: ({ commit }, payload) => {
     const items = ItemListService.getAllStoredItems('GET-THE-MILK');
-    console.log(items);
     const index = items.findIndex(i => i.id === payload.id);
     if (index === -1) {
       return;
@@ -39,12 +44,14 @@ export const mutations = {
     ItemListService.setItems('GET-THE-MILK', state.items);
   },
 
-  removeAddedItems: (state, itemToRemove) => {
-    state.items.splice(itemToRemove, 1);
+  removeAddedItems: (state, items) => {
+    state.items = items;
+    ItemListService.setItems('GET-THE-MILK', state.items);
   },
 
   updateAddedItems: (state, itemToUpdate) => {
     state.items = itemToUpdate;
+    ItemListService.setItems('GET-THE-MILK', state.items);
   },
 
   setPreviousItems: (state, items) => {

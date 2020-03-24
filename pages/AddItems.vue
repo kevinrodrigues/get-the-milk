@@ -46,7 +46,8 @@ export default {
     ...mapActions('ItemList', [
       'addItems',
       'updateItems',
-      'getPreviousItems'
+      'getPreviousItems',
+      'removeItems'
     ]),
 
     saveItem () {
@@ -67,6 +68,7 @@ export default {
     },
 
     handleItemChange (item) {
+      this.removeItems(item.id);
       this.updateItems(item);
     }
   }
