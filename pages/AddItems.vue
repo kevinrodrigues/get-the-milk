@@ -68,7 +68,6 @@ export default {
     },
 
     handleItemChange (item) {
-      this.removeItems(item.id);
       this.updateItems(item);
     }
   }
