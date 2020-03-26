@@ -38,8 +38,6 @@ export const actions = {
   getPreviousItems: ({ commit }) => {
     const previouslyAddedItems = ItemListService.getAllStoredItems('GET-THE-MILK');
 
-    console.log(previouslyAddedItems);
-
     if (previouslyAddedItems) {
       commit('setPreviousItems', previouslyAddedItems);
     }

@@ -18,4 +18,21 @@
       position: relative;
       margin-top: 15px;
   }
+
+  .c-baseItem {
+      display: flex;
+      flex-direction: row;
+      padding: 25px 0;
+      border-bottom: 1px solid #ccc;
+
+      .c-baseItem--checkbox,
+      .c-baseItem--content,
+      .c-baseItem--actions {
+          flex: 1 1 auto;
+      }
+
+      .c-baseItem--actions {
+          text-align: right;
+      }
+  }
 }

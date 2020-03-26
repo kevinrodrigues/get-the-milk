@@ -9,8 +9,8 @@
       </div>
 
       <input
-        v-if="isEditing"
         ref="editItem"
+        v-if="isEditing"
         v-model.trim="itemReference"
         @keyup.enter="saveItem"
         @blur="saveItem"
