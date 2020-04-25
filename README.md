@@ -1,6 +1,8 @@
 # get-the-milk
 
-> Reminder list making app
+> Reminder list making app (WIP)
+
+![alt tag](/static/img.png)
 
 ## Build Setup
 
